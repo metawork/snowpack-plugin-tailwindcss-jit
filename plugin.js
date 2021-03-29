@@ -6,6 +6,8 @@ const tailwindConfig = require("tailwindcss/resolveConfig")(require(path.join(pr
 const TAILWIND_IMPORT_REGEX = /\@import\s+['"](tailwindcss\/.+)['"].*|\@tailwind\s+.*/g;
 
 module.exports = (snowpackConfig, pluginOptions) => {
+
+  console.log("plugin options", pluginOptions);
   let filesWithTailwindImports = [];
   return {
     name: "@jadex/snowpack-plugin-tailwindcss-jit",
