@@ -1,13 +1,13 @@
 const fs = require("fs");
 const path = require("path");
 const micromatch = require("micromatch");
-const tailwindConfig = require("tailwindcss/resolveConfig")(require(path.join(process.cwd(), "/tailwind.config.js")));
 
 const TAILWIND_IMPORT_REGEX = /\@import\s+['"](tailwindcss\/.+)['"].*|\@tailwind\s+.*/g;
 
 module.exports = (snowpackConfig, pluginOptions) => {
-
+  
   console.log("plugin options", pluginOptions);
+  const tailwindConfig = require("tailwindcss/resolveConfig")(require(path.join(process.cwd(), "/tailwind.config.js")));
   let filesWithTailwindImports = [];
   return {
     name: "@jadex/snowpack-plugin-tailwindcss-jit",
